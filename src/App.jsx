@@ -1,40 +1,132 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const objectionScenarios = [
+const scriptData = [
   {
-    title: "We already do our own lead generation",
-    response: `That's great — what method are you using, and how is it working for you? Many of our clients started with CRMs and cold calling too, but Kevin's system handles high-volume email (3k/day) with strong deliverability. Let’s get you on a quick call with him so he can show how your current system compares live, and share real prospects.`,
+    title: 'Complete Call Flows',
+    sections: [
+      {
+        title: 'Interested but already has their own system',
+        content: `Me:
+“Johnny, my name is Luis. Just curious—could you use more leads and appointments...`
+      },
+      {
+        title: '“We’d love more business” – No Price Objection',
+        content: `Me:
+“Johnny, my name is Luis. Just curious—could you use more leads and appointments...`
+      },
+      {
+        title: 'Interested, but tight on money',
+        content: `Run the Scenario 2 pitch, and when cost comes up:
+Me:
+“Totally understand—let’s get you on a call with Kevin...”`
+      },
+      {
+        title: 'Has a system, but skeptical',
+        content: `This DM isn’t dismissive but more closed off than Scenario 1. They listen but are guarded...`
+      },
+    ],
   },
   {
-    title: "This sounds complicated",
-    response: `It might sound like a lot at first, but once it's set up, the entire system is automated and requires just ~20 minutes a week. Kevin trains your team personally, and handles everything from server setup to copywriting.`,
+    title: 'Knowledge Base',
+    sections: [],
   },
   {
-    title: "We’re tight on money",
-    response: `Understood. Let’s start with seeing your prospect list and hearing what Kevin has to say. From there, he can walk you through flexible options based on your setup. We’re focused on ROI — 3k emails/day means serious volume and opportunity.`,
+    title: 'FAQs',
+    sections: [],
+  },
+  {
+    title: 'SDR Call Objection Handling Scenarios',
+    sections: [
+      {
+        title: "'We already do that.'",
+        content: `DM: “We already do that.” (Flat tone, ready to hang up)...`
+      },
+      {
+        title: "'We don’t do email marketing.'",
+        content: `DM: “We don’t really do email marketing.”...`
+      },
+      {
+        title: "'We generate all our own leads internally.'",
+        content: `DM: “We’ve got reps calling and doing all that already.”...`
+      },
+      {
+        title: "'We don’t have time for this.'",
+        content: `DM: “I just don’t have time to take this on right now.”...`
+      },
+      {
+        title: "'We’ve tried email marketing before—it didn’t work.'",
+        content: `DM: “We’ve done email campaigns before. Didn't get anything from it.”...`
+      },
+      {
+        title: "'We don’t have budget for that.'",
+        content: `DM: “We just don’t have money for something like that right now.”...`
+      },
+      {
+        title: "Fast Brush-Offs: 'Not interested.' / 'We’re good.' / 'Already have something.'",
+        content: `DM: “We’re good, thanks.”...`
+      },
+    ],
   },
 ];
 
 export default function App() {
-  const [expanded, setExpanded] = useState(null);
-  return (
-    <div className="p-6 max-w-2xl mx-auto font-sans">
-      <h1 className="text-2xl font-bold mb-4">SDR Objection Handling</h1>
-      {objectionScenarios.map((scenario, idx) => (
-        <div key={idx} className="mb-4 border rounded-xl shadow p-4">
-          <button
-            className="w-full text-left font-semibold text-lg"
-            onClick={() => setExpanded(expanded === idx ? null : idx)}
-          >
-            {scenario.title}
-          </button>
-          {expanded === idx && (
-            <p className="mt-2 text-gray-700 whitespace-pre-line">
-              {scenario.response}
-            </p>
-          )}
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  if (!selectedCategory) {
+    return (
+      <div className="p-6 max-w-3xl mx-auto font-sans">
+        <h1 className="text-3xl font-bold mb-6">SDR Script & Training</h1>
+        <div className="space-y-4">
+          {scriptData.map((cat, idx) => (
+            <div
+              key={idx}
+              className="border rounded-xl shadow p-4 hover:bg-gray-50 cursor-pointer"
+              onClick={() => setSelectedCategory(idx)}
+            >
+              <h2 className="text-xl font-semibold">{cat.title}</h2>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+    );
+  }
+
+  const category = scriptData[selectedCategory];
+
+  return (
+    <div className="p-6 max-w-3xl mx-auto font-sans">
+      <div
+        className="text-gray-500 text-sm cursor-pointer mb-4 inline-block"
+        onClick={() => {
+          setSelectedCategory(null);
+          setExpandedIndex(null);
+        }}
+      >
+        ← Back to all sections
+      </div>
+
+      <h2 className="text-2xl font-bold mb-4">{category.title}</h2>
+
+      {category.sections.length === 0 ? (
+        <p className="text-gray-600 italic">Coming soon...</p>
+      ) : (
+        category.sections.map((section, idx) => (
+          <div key={idx} className="mb-4 border rounded-xl shadow">
+            <button
+              className="w-full text-left font-semibold text-lg p-4"
+              onClick={() => setExpandedIndex(expandedIndex === idx ? null : idx)}
+            >
+              {section.title}
+            </button>
+            {expandedIndex === idx && (
+              <div className="p-4 pt-0 text-gray-800 whitespace-pre-line">
+                {section.content}
+              </div>
+            )}
+          </div>
+        ))
+      )}
     </div>
   );
 }
