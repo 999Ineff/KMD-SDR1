@@ -47,6 +47,7 @@ Me:
 Let’s get you on a call with Kevin—he has over 7 years of experience and has sent over 100 million emails. He’s an expert in this space, and within minutes he can share the prospect list and explain how it all works.”
 
 Additional Note:
+
 If they ask, “How are you different?” — your goal is not to be a subject matter expert. Keep it tight, get them to Kevin.
 
 Me:
@@ -163,7 +164,7 @@ Use their answers to highlight limitations and bring them back to Kevin’s syst
     sections: []
   },
   {
-    title: 'SDR Call Objection Handling Scenarios',
+    title: 'Objection Scenarios',
     sections: [
       {
         title: "'We already do that.'",
@@ -235,20 +236,21 @@ Once they respond, pivot to:
   }
 ];
 
+// UI Component
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleCategoryClick = (idx) => {
     setSelectedCategory(idx);
-    setExpandedIndex(null); // Reset sub-section toggles on section switch
+    setExpandedIndex(null);
   };
 
-  const category = scriptData[selectedCategory];
+  const category = selectedCategory !== null ? scriptData[selectedCategory] : null;
 
   return (
     <div className="p-6 max-w-3xl mx-auto font-sans">
-      {!selectedCategory && (
+      {!category ? (
         <>
           <h1 className="text-3xl font-bold mb-6">SDR Script & Training</h1>
           <div className="space-y-4">
@@ -263,9 +265,7 @@ export default function App() {
             ))}
           </div>
         </>
-      )}
-
-      {selectedCategory !== null && (
+      ) : (
         <>
           <div
             className="text-gray-500 text-sm cursor-pointer mb-4 inline-block hover:underline"
