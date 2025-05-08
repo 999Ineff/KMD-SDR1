@@ -175,7 +175,74 @@ Use their answers to highlight limitations and bring them back to Kevin’s syst
   },
   {
     title: 'SDR Call Objection Handling Scenarios',
-    sections: [...] // existing content unchanged
+    sections: [
+      {
+        title: "'We already do that.'",
+        content: `DM: “We already do that.” (Flat tone, ready to hang up)
+
+You: “Totally hear you—what are you doing specifically? CRM-based email or reps cold calling?”
+
+If they answer vaguely or stall:
+“That’s what most companies say at first. But Kevin’s system sends up to 3,000 emails a day from a private server—not through a CRM or Mailchimp. That’s why I’d like to connect you with him—he can show you how it’s different. He’ll even pull a live prospect list on the call.”`
+      },
+      {
+        title: "'We don’t do email marketing.'",
+        content: `DM: “We don’t really do email marketing.”
+
+You: “That makes sense—most don’t, or they do it the wrong way. Kevin’s system isn’t newsletters or Mailchimp stuff—it’s high-volume outbound with real prospect data and reply-focused copy. It’s built more like a cold outreach campaign than a traditional email blast.”
+
+Then go right into:
+“Kevin can show you how it works live on the call—pulls a prospect list and explains how to avoid spam filters, keep the domain clean, and get replies.”`
+      },
+      {
+        title: "'We generate all our own leads internally.'",
+        content: `DM: “We’ve got reps calling and doing all that already.”
+
+You: “That’s awesome. Are they generating all inbound leads too, or just cold calling?”
+
+Then:
+“Kevin’s system adds fuel to that fire—3,000 emails a day going out while your reps do their thing. Think of it like giving them 20 more cold callers, without payroll.”`
+      },
+      {
+        title: "'We don’t have time for this.'",
+        content: `DM: “I just don’t have time to take this on right now.”
+
+You: “Totally understand. Most clients actually come to us because they don’t have time. Kevin builds the system for you—copy, server, list, everything. You or your team just approve the setup, and after it’s running, it takes 20 minutes a week to manage.”
+
+Then:
+“If we can find just 10 minutes, Kevin can show you your custom prospect list. That way you’ll know if it’s even worth your time.”`
+      },
+      {
+        title: "'We’ve tried email marketing before—it didn’t work.'",
+        content: `DM: “We’ve done email campaigns before. Didn't get anything from it.”
+
+You: “Totally—most email campaigns don’t work. But they usually fail because they’re run through CRMs or newsletter platforms that kill deliverability. Kevin’s approach is different—he runs everything through private servers with fresh domains and targeted copy. That’s why his clients stay with him.”
+
+Then:
+“He can show you a sample list and setup on a call. No commitment—just so you can see how this is different.”`
+      },
+      {
+        title: "'We don’t have budget for that.'",
+        content: `DM: “We just don’t have money for something like that right now.”
+
+You: “Totally fair. Let me ask—how many leads or appointments would it take to pay for a system like this in a week or two?”
+
+Then:
+“Before talking pricing, Kevin can show you your exact prospect list and explain how the setup works. You’ll get a full understanding of what you’d be investing in.”`
+      },
+      {
+        title: "Fast Brush-Offs: 'Not interested.' / 'We’re good.' / 'Already have something.'",
+        content: `DM: “We’re good, thanks.”
+
+You: “Totally get it—can I ask, are you using CRM email, Mailchimp, or cold calling?”
+
+Or:
+“Got it—just curious, are you guys sending out 3,000+ emails a day, or running something more manual?”
+
+Once they respond, pivot to:
+“What Kevin does is different—he builds a high-volume, reply-driven email system from the ground up. He can show you a sample prospect list and setup in just five minutes on a call.”`
+      }
+    ]
   }
 ];
 
