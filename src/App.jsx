@@ -293,9 +293,11 @@ export default function App() {
                   {section.title}
                 </button>
                 {expandedIndex === idx && (
-                  <div className="p-4 pt-0 text-gray-800 whitespace-pre-line border-t">
-                    {section.content}
-                  </div>
+                  <div className="p-4 pt-0 text-gray-800 border-t space-y-3">
+  {section.content.split(/\n{2,}/).map((paragraph, i) => (
+    <p key={i} className="whitespace-pre-line">{paragraph.trim()}</p>
+  ))}
+</div>
                 )}
               </div>
             ))
